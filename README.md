@@ -1,1 +1,1 @@
-# bot-arena
+# Bot Arena
