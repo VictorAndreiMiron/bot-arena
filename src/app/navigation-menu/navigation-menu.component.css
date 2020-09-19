@@ -2,7 +2,11 @@
 
 .navigation{
   font-size: 1.5vw;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
 }
+
 
 nav a:visited, a:link {
   color: #607D8B;
