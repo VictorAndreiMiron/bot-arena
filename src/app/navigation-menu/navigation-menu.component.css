@@ -1,0 +1,15 @@
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.navigation{
+  font-size: 1.5vw;
+}
+
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+}
+nav a.active {
+  color: #039be5;
+}

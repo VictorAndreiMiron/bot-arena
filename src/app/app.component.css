@@ -1,0 +1,11 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+.header{
+  height: 80px;
+}
+.content{
+  min-height: calc(100vh - 120px);
+}
+footer{
+  background-color: gray;
+  height: 40px;
+}
