@@ -11,7 +11,6 @@ export class BotInfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-     console.log(JSON.stringify(this.bot));
   }
 
 }

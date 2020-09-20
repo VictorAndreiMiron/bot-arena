@@ -4,13 +4,13 @@ import { Arena } from '../../models/arena/arena.model'
   providedIn: 'root'
 })
 export class ArenaService {
-  arenas: Arena[] = [{id:1,name:"TicTacToe",bots:[{name:"QBot",type:"q_table_bot",info:"CATERINCA1"},{name:"QBot_2",type:"q_table_bot",info:"CATERINCA2"}]}];
+  arenas: Arena[] = [{name:"TicTacToe",bots:[{name:"QBot",type:"q_table_bot",info:"CATERINCA1"},{name:"QBot_2",type:"q_table_bot",info:"CATERINCA2"}]}];
   constructor() { }
 
   getArenas(): Arena[]{
     return this.arenas;
   }
-  getArenaById(id: number): Arena{
-    return this.arenas[id-1];
+  getArenaByName(name: string): Arena{
+    return this.arenas[0];
   }
 }

@@ -23,9 +23,7 @@ export class ArenaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.arena = this.arenaService.getArenaById(+params.get('id'));
-      });
+    this.arena = this.arenaService.getArenaByName(this.route.routeConfig.children);
   }
   changeBot(event){
     this.selectedBot = this.selectBotForm.value.bot

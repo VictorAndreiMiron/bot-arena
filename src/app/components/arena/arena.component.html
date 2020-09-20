@@ -4,7 +4,7 @@
 <h1>
       {{arena.name}} Arena
 </h1>
-
+<router-outlet  [queryParams] ="selecteBot | json"></router-outlet>
 <h3>Select a bot</h3>
 <div [formGroup]="selectBotForm">
   <select class="custom-select" (change)="changeBot($event)" formControlName="bot">
@@ -12,5 +12,4 @@
      <option *ngFor="let bot of arena.bots" [ngValue]="bot">{{bot.name}}</option>
   </select>
 </div>
-
-  <app-bot-info [bot]="selectedBot"><app-bot-info>
+<app-bot-info [bot]="selectedBot"><app-bot-info>

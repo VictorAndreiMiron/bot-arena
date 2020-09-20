@@ -36,10 +36,8 @@ export class WelcomeComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.state="large";
     this.changeDetectorRef.detectChanges();
-    console.log('After View');
   }
   onAnimationEvent( event: AnimationEvent ) {
-    console.warn("ANimation happened");
   }
 
 }
