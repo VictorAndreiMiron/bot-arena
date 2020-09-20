@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigation-menu.component.css']
 })
 export class NavigationMenuComponent implements OnInit {
-
+  arenas: number[] = [1,2,3,4]
   constructor() { }
 
   ngOnInit(): void {

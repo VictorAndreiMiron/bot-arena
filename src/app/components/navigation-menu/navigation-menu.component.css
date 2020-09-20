@@ -1,7 +1,7 @@
-@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 
 .navigation{
-  font-size: 1.5vw;
+  font-size: 4vh;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
