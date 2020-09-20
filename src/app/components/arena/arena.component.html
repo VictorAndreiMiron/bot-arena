@@ -1,2 +1,16 @@
+<div class="empty-space">
+  <br/>
+</div>
+<h1>
+      {{arena.name}} Arena
+</h1>
 
-  <p>{{arena.name}} Arena</p>
+<h3>Select a bot</h3>
+<div [formGroup]="selectBotForm">
+  <select class="custom-select" (change)="changeBot($event)" formControlName="bot">
+    <option value="" disabled>Choose a bot to play against</option>
+     <option *ngFor="let bot of arena.bots" [ngValue]="bot">{{bot.name}}</option>
+  </select>
+</div>
+
+  <app-bot-info [bot]="selectedBot"><app-bot-info>

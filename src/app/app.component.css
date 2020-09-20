@@ -1,9 +1,8 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 .content{
-  min-height: calc(90vh);
+  min-height: calc(91vh);
   width: 90vw;
-  line-height: 20vh;
 }
 .header{
-  height:5vh;
+  height:4vh;
 }

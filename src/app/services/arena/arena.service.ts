@@ -4,7 +4,7 @@ import { Arena } from '../../models/arena/arena.model'
   providedIn: 'root'
 })
 export class ArenaService {
-  arenas: Arena[] = [{id:1,name:"TicTacToe",bots:[{name:"QBot",type:"q_table_bot",info:{}}]}];
+  arenas: Arena[] = [{id:1,name:"TicTacToe",bots:[{name:"QBot",type:"q_table_bot",info:"CATERINCA1"},{name:"QBot_2",type:"q_table_bot",info:"CATERINCA2"}]}];
   constructor() { }
 
   getArenas(): Arena[]{

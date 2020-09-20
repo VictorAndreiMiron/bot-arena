@@ -1,1 +1,7 @@
-
+h1{
+  font-size:5vh;
+  text-align: center;
+}
+.empty-space{
+  min-height: 9vh;
+}
