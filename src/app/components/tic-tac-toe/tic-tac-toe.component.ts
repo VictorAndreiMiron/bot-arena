@@ -1,6 +1,6 @@
 import { Component, ViewChild, OnInit, AfterViewInit, ElementRef} from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router'
-import { Bot } from '../../models/bot/bot-model'
+import { BotInfo } from '../../models/bot-info/bot-info.model'
 @Component({
   selector: 'app-tic-tac-toe',
   templateUrl: './tic-tac-toe.component.html',
@@ -9,12 +9,14 @@ import { Bot } from '../../models/bot/bot-model'
 export class TicTacToeComponent implements OnInit, AfterViewInit {
   @ViewChild('myCanvas', {static: false}) myCanvas: ElementRef<HTMLCanvasElement>;
   bot: any;
-  gameBoard: string[][];
+  gameBoard: number[][];
   x: number = 1;
   o: number = -1;
   empty: number = 0;
   turn: boolean = true;
   context: CanvasRenderingContext2D;
+  canvas: any;
+  square: number;
   constructor(private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -38,7 +40,7 @@ export class TicTacToeComponent implements OnInit, AfterViewInit {
       }
     }
   }
-  async gameLoop(event): void{
+  async gameLoop(event): Promise<any>{
     let xPosition = Math.floor((event.pageX - this.canvas.offsetWidth + 40) / (this.square-2) ) - 3;
     let yPosition = Math.floor((event.pageY - this.canvas.offsetWidth - 40) / (this.square-2) ) + 2;
     if(this.turn){
