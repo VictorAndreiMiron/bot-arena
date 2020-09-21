@@ -4,7 +4,8 @@
 <h1>
       {{arena.name}} Arena
 </h1>
-<router-outlet  [queryParams] ="selecteBot | json"></router-outlet>
+<template #gameContainer id="gameContainer"></template>
+<!-- <router-outlet></router-outlet> -->
 <h3>Select a bot</h3>
 <div [formGroup]="selectBotForm">
   <select class="custom-select" (change)="changeBot($event)" formControlName="bot">

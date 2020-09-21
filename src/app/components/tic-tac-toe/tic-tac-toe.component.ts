@@ -8,7 +8,7 @@ import { BotInfo } from '../../models/bot-info/bot-info.model'
 })
 export class TicTacToeComponent implements OnInit, AfterViewInit {
   @ViewChild('myCanvas', {static: false}) myCanvas: ElementRef<HTMLCanvasElement>;
-  bot: any;
+  botInfo: BotInfo;
   gameBoard: number[][];
   x: number = 1;
   o: number = -1;
@@ -17,6 +17,7 @@ export class TicTacToeComponent implements OnInit, AfterViewInit {
   context: CanvasRenderingContext2D;
   canvas: any;
   square: number;
+  handleGame:any;
   constructor(private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -25,14 +26,16 @@ export class TicTacToeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(){
      this.canvas = this.myCanvas.nativeElement;
      this.context = this.myCanvas.nativeElement.getContext('2d');
-     let size = this.canvas.offsetWidth;
+     let size = this.canvas.width;
      this.square = Math.floor(size/3);
      this.drawGameGrid();
      this.gameInit();
-     this.canvas.addEventListener('click',(event) => this.gameLoop(event))
+     this.handleGame = (event) => this.gameLoop(event)
+     this.canvas.addEventListener('click', this.handleGame)
   }
   gameInit():void{
     this.gameBoard = []
+    this.turn = true;
     for(let i=0; i<3; i++){
       this.gameBoard[i] = []
       for(let j=0; j<3; j++) {
@@ -41,8 +44,9 @@ export class TicTacToeComponent implements OnInit, AfterViewInit {
     }
   }
   async gameLoop(event): Promise<any>{
-    let xPosition = Math.floor((event.pageX - this.canvas.offsetWidth + 40) / (this.square-2) ) - 3;
-    let yPosition = Math.floor((event.pageY - this.canvas.offsetWidth - 40) / (this.square-2) ) + 2;
+    let xPosition = Math.floor((event.pageX - this.canvas.offsetWidth) / (this.square) ) - 3;
+    let yPosition = Math.floor((event.pageY - this.canvas.offsetHeight) / (this.square) );
+    alert(`xPosition: ${xPosition} , yPosition: ${yPosition}, pageX: ${event.pageX}, pageY:${event.pageY}`)
     if(this.turn){
       if(this.gameBoard[xPosition][yPosition] ==  this.empty){
         this.gameBoard[xPosition][yPosition] = this.x;
@@ -66,11 +70,13 @@ export class TicTacToeComponent implements OnInit, AfterViewInit {
     this.turn = !this.turn;
     let winner = this.getWinner()
     if(winner != undefined){
+      this.canvas.removeEventListener('click',this.handleGame)
       this.drawResult(winner)
       await new Promise(r => setTimeout(r, 2000));
       this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.drawGameGrid();
       this.gameInit();
+      this.canvas.addEventListener('click',this.handleGame)
     }
   }
 
